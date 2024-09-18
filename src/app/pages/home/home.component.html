@@ -1,0 +1,60 @@
+
+
+<div class="col-container mt-5">
+
+</div> 
+<div class="row">
+  <h1 class="text-center"> TAREAS</h1>
+</div>
+<div class="row">
+  <div class="col-lg-8 offset-lg-2 mb-2">
+    <input type="text"[(ngModel)]="tarea"(keyup.enter)="agregartarea()" class="form-control form control-lg text-center" placeholder="ingrese tarea">
+     <button class="destroy"></button>
+  </div>
+
+</div>
+
+  <div class="col-container mt-5">
+      
+
+      <div class="col">
+
+         <h3 > TODO</h3>
+         <div cdkDropList class="example-list" id="list-todo" [cdkDropListData]="todo" [cdkDropListConnectedTo]="['list-progreso']"(cdkDropListDropped)="drop($event)">
+            
+            <div class="example-box" *ngFor="let item of todo" cdkDrag>{{item}}</div>
+         </div>
+      </div>
+
+      <div class="col">
+        <h3> EN PROGRESO</h3>
+        <div cdkDropList class="example-list" id="list-progreso" [cdkDropListData]="progreso"[cdkDropListConnectedTo]="['list-todo','list-finalizada']"(cdkDropListDropped)="drop($event)">
+          
+          <div class="example-box" *ngFor="let item of progreso" cdkDrag>{{item}}</div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h3> FILALIZADA </h3>
+        <div cdkDropList class="example-list" id="list-finalizada" [cdkDropListData]="finalizada"[cdkDropListConnectedTo]="['list-progreso']"(cdkDropListDropped)="drop($event)">
+          
+          <div class="example-box" *ngFor="let item of finalizada" cdkDrag>{{item}}</div>
+      </div>
+    
+      
+    
+
+  
+
+  
+
+
+  </div>
+
+
+
+    
+  
+    
+   
+ 
